@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Coverage Review and Discussion Meeting Form | UITS CSE</title>
+  <meta name="description" content="Fill in, print, or download the Course Coverage Review and Discussion Meeting Form for the Department of Computer Science and Engineering, UITS.">
+  <meta name="theme-color" content="#1b2f4b">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#meetingForm">Skip to the form</a>
+
+  <!-- ===================== Screen interface ===================== -->
+  <div class="app" id="app">
+    <header class="site-header">
+      <div class="container">
+        <p class="institution">University of Information Technology &amp; Sciences</p>
+        <p class="department">Department of Computer Science and Engineering</p>
+        <h1>Course Coverage Review and Discussion Meeting Form</h1>
+      </div>
+    </header>
+
+    <main class="container">
+      <noscript>
+        <p class="notice notice-error">This form needs JavaScript. Please enable it in your browser settings.</p>
+      </noscript>
+
+      <p class="intro">
+        Complete the sections below, then download the PDF or print the form.
+        Your entries are saved automatically in this browser, so you can close the page and return later.
+      </p>
+
+      <form id="meetingForm" novalidate autocomplete="off">
+
+        <!-- 1. Meeting Information -->
+        <section class="card" aria-labelledby="h-info">
+          <h2 id="h-info"><span class="sec-no">1.</span> Meeting Information</h2>
+
+          <fieldset class="criteria">
+            <legend>Criteria</legend>
+            <p class="hint" id="criteriaHint">Select one or more. Only the selected criteria are printed, as bullet points.</p>
+            <ul class="criteria-list" aria-describedby="criteriaHint">
+              <li>
+                <input type="checkbox" id="crit-beginning" data-criterion="beginning">
+                <label for="crit-beginning">Beginning of the Semester</label>
+              </li>
+              <li>
+                <input type="checkbox" id="crit-midterm" data-criterion="midterm">
+                <label for="crit-midterm">Midterm</label>
+              </li>
+              <li>
+                <input type="checkbox" id="crit-final" data-criterion="final">
+                <label for="crit-final">Final</label>
+              </li>
+              <li class="criteria-others">
+                <input type="checkbox" id="crit-others" data-criterion="others" aria-controls="othersWrap" aria-expanded="false">
+                <label for="crit-others">Others</label>
+                <div class="others-wrap" id="othersWrap" hidden>
+                  <label class="sub-label" for="othersText">Specify the other criterion</label>
+                  <input type="text" id="othersText" maxlength="200" placeholder="e.g., Mid-semester review" aria-describedby="othersError">
+                  <p class="field-error" id="othersError" role="alert" hidden></p>
+                </div>
+              </li>
+            </ul>
+          </fieldset>
+
+          <div class="grid grid-6">
+            <div class="field span-3">
+              <label for="semester">Semester</label>
+              <input type="text" id="semester" maxlength="60" placeholder="e.g., Spring 2026">
+            </div>
+            <div class="field span-3">
+              <label for="courseCode">Course Code</label>
+              <input type="text" id="courseCode" maxlength="40" placeholder="e.g., CSE 3201">
+            </div>
+            <div class="field span-6">
+              <label for="courseTitle">Course Title</label>
+              <input type="text" id="courseTitle" maxlength="160" placeholder="e.g., Artificial Intelligence">
+            </div>
+            <div class="field span-2">
+              <label for="meetingDate">Meeting Date</label>
+              <input type="date" id="meetingDate">
+            </div>
+            <div class="field span-2">
+              <label for="meetingTime">Meeting Time</label>
+              <input type="time" id="meetingTime">
+            </div>
+            <div class="field span-2">
+              <label for="meetingVenue">Meeting Venue</label>
+              <input type="text" id="meetingVenue" maxlength="120" placeholder="e.g., Room 502">
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Participating Course Teachers -->
+        <section class="card" aria-labelledby="h-teachers">
+          <h2 id="h-teachers"><span class="sec-no">2.</span> Participating Course Teachers</h2>
+          <p class="hint">Enter the name of each participating teacher. A blank signature column is added beside every name for signing by hand.</p>
+
+          <ol class="teacher-list" id="teacherList" aria-label="Participating course teachers"></ol>
+
+          <button type="button" class="btn btn-add" id="addTeacher">
+            <span class="plus" aria-hidden="true">+</span> Add Teacher
+          </button>
+        </section>
+
+        <!-- 3. Course Coverage -->
+        <section class="card" aria-labelledby="h-coverage">
+          <h2 id="h-coverage"><span class="sec-no">3.</span> Course Coverage</h2>
+          <p class="hint">Write the topics under the appropriate category.</p>
+
+          <div class="coverage-grid">
+            <div class="field">
+              <label for="covered">Covered</label>
+              <textarea id="covered" rows="9"></textarea>
+            </div>
+            <div class="field">
+              <label for="notCovered">Not Covered</label>
+              <textarea id="notCovered" rows="9"></textarea>
+            </div>
+            <div class="field">
+              <label for="partiallyCovered">Partially Covered</label>
+              <textarea id="partiallyCovered" rows="9"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Meeting Discussion and Decisions -->
+        <section class="card" aria-labelledby="h-discussion">
+          <h2 id="h-discussion"><span class="sec-no">4.</span> Meeting Discussion and Decisions</h2>
+          <div class="field">
+            <label for="discussion" class="visually-hidden">Meeting discussion and decisions</label>
+            <textarea id="discussion" rows="12" aria-describedby="discussionHint"></textarea>
+            <p class="hint" id="discussionHint">Paragraph breaks are kept in the PDF and the printout.</p>
+          </div>
+          <p class="notice">
+            <strong>Head of the Department:</strong> a blank space for the signature, labelled
+            &ldquo;Signature of Head of the Department&rdquo;, is added at the end of the document automatically.
+          </p>
+        </section>
+
+        <!-- Actions -->
+        <section class="card actions" aria-labelledby="h-actions">
+          <h2 id="h-actions" class="visually-hidden">Create the document</h2>
+          <div class="action-row">
+            <button type="button" class="btn btn-primary" id="downloadBtn">Download PDF</button>
+            <button type="button" class="btn btn-secondary" id="previewBtn">Preview PDF</button>
+            <button type="button" class="btn btn-secondary" id="printBtn">Print</button>
+            <button type="button" class="btn btn-danger" id="resetBtn">Reset Form</button>
+          </div>
+          <p class="save-note" id="saveNote">Changes are saved automatically in this browser.</p>
+        </section>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Department of Computer Science and Engineering, UITS. Everything is processed in your browser; no data is sent anywhere.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Print-only document (filled in by script.js) -->
+  <div class="print-sheet" id="printSheet" aria-hidden="true"></div>
+
+  <!-- Reset confirmation -->
+  <dialog id="resetDialog" aria-labelledby="resetTitle" aria-describedby="resetText">
+    <form method="dialog">
+      <h2 id="resetTitle">Reset the form?</h2>
+      <p id="resetText">All entries will be cleared, including the saved copy in this browser. This cannot be undone.</p>
+      <div class="dialog-actions">
+        <button type="submit" value="cancel" class="btn btn-secondary" id="resetCancel" autofocus>Cancel</button>
+        <button type="submit" value="confirm" class="btn btn-danger-solid" id="resetConfirm">Reset Form</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Status messages -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- PDF libraries (exact versions pinned) -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
